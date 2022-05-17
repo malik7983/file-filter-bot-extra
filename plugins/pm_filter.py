@@ -41,7 +41,7 @@ async def give_filter(client, message):
 async def next_page(bot, query):
     ident, req, key, offset = query.data.split("_")
     if int(req) not in [query.from_user.id, 0]:
-        return await query.answer("oKda", show_alert=True)
+        return await query.answer("😎 Hey bro Search Your Own", show_alert=True)
     try:
         offset = int(offset)
     except:
@@ -95,10 +95,16 @@ async def next_page(bot, query):
              InlineKeyboardButton(f"📃 Pages {round(int(offset) / 10) + 1} / {round(total / 10)}",
                                   callback_data="pages")]
         )
+        btn.append(
+            [InlineKeyboardButton('✅ Subscribe my YouTube channel ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')]
+        )
     elif off_set is None:
         btn.append(
             [InlineKeyboardButton(f"🗓 {round(int(offset) / 10) + 1} / {round(total / 10)}", callback_data="pages"),
              InlineKeyboardButton("NEXT ⏩", callback_data=f"next_{req}_{key}_{n_offset}")])
+        btn.append(
+            [InlineKeyboardButton('✅ Subscribe my YouTube channel ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')]
+        )
     else:
         btn.append(
             [
@@ -108,7 +114,7 @@ async def next_page(bot, query):
             ],
         )
         btn.append(
-            [InlineKeyboardButton("❌CLOSE❌", callback_data="close_data")]
+            [InlineKeyboardButton('✅ Subscribe my YouTube channel ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')]
         )
     btn.insert(0, [
         InlineKeyboardButton(text="⚠️ 𝐉𝐨𝐢𝐧 𝐌𝐨𝐯𝐢𝐞𝐬 Group ⚠️", url="https://t.me/+gXuMKXOWm1UyOTdl")
@@ -126,7 +132,7 @@ async def next_page(bot, query):
 async def advantage_spoll_choker(bot, query):
     _, user, movie_ = query.data.split('#')
     if int(user) != 0 and query.from_user.id != int(user):
-        return await query.answer("okDa", show_alert=True)
+        return await query.answer("😎 Hey bro Search Your Own", show_alert=True)
     if movie_ == "close_spellcheck":
         return await query.message.delete()
     movies = SPELL_CHECK.get(query.message.reply_to_message.message_id)
@@ -679,9 +685,15 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text=f"🌹 𝗣𝗮𝗴𝗲 1/{round(int(total_results) / 10)}", callback_data="pages"),
              InlineKeyboardButton(text="NEXT ⏩", callback_data=f"next_{req}_{key}_{offset}")]
         )
+        btn.append(
+            [InlineKeyboardButton('✅ Subscribe my YouTube channel ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')]
+        )
     else:
         btn.append(
             [InlineKeyboardButton(text="🌹 𝗣𝗮𝗴𝗲 1/1", callback_data="pages")]
+        )
+        btn.append(
+            [InlineKeyboardButton('✅ Subscribe my YouTube channel ✅', url='https://youtube.com/channel/UCPaHDqWf3D3w2nxb8p3sr4A')]
         )
     btn.insert(0, [
         InlineKeyboardButton(text="⚠️ 𝐉𝐨𝐢𝐧 𝐌𝐨𝐯𝐢𝐞𝐬 𝙂𝙧𝙤𝙪𝙥 ⚠️", url="https://t.me/+gXuMKXOWm1UyOTdl")
